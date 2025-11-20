@@ -1,0 +1,237 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>win10-11安装docker及其简单使用 | Attitude’s Blog</title><meta name="author" content="Excalibur"><meta name="copyright" content="Excalibur"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="win10-11安装docker及其简单使用一、Docker 简介Docker 是一个开源的应用容器引擎，可以让开发者将应用及其依赖打包到一个可移植的镜像中，然后在任意环境中运行。在 Windows 下安装 Docker 的方式主要是通过 Docker Desktop，它支持 WSL2 技术，大幅提高性能。 二、安装1.安装前的准备1.1 检查 Windows 版本Docker Desktop 要">
+<meta property="og:type" content="article">
+<meta property="og:title" content="win10-11安装docker及其简单使用">
+<meta property="og:url" content="http://example.com/2025/10/11/win10-11%E5%AE%89%E8%A3%85docker%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Attitude’s Blog">
+<meta property="og:description" content="win10-11安装docker及其简单使用一、Docker 简介Docker 是一个开源的应用容器引擎，可以让开发者将应用及其依赖打包到一个可移植的镜像中，然后在任意环境中运行。在 Windows 下安装 Docker 的方式主要是通过 Docker Desktop，它支持 WSL2 技术，大幅提高性能。 二、安装1.安装前的准备1.1 检查 Windows 版本Docker Desktop 要">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/butterfly-icon1.png">
+<meta property="article:published_time" content="2025-10-11T02:17:42.000Z">
+<meta property="article:modified_time" content="2025-11-17T02:18:13.585Z">
+<meta property="article:author" content="Excalibur">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/butterfly-icon1.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "win10-11安装docker及其简单使用",
+  "url": "http://example.com/2025/10/11/win10-11%E5%AE%89%E8%A3%85docker%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/",
+  "image": "http://example.com/img/butterfly-icon1.png",
+  "datePublished": "2025-10-11T02:17:42.000Z",
+  "dateModified": "2025-11-17T02:18:13.585Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Excalibur",
+      "url": "http://example.com"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/10/11/win10-11%E5%AE%89%E8%A3%85docker%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=5.5.3-b1"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@7.1.0/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: '复制成功',
+    error: '复制失败',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.12.0/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'win10-11安装docker及其简单使用',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/butterfly-icon1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我们</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><img class="site-icon" src="/img/favicon.png" alt="Logo"><span class="site-name">Attitude’s Blog</span></a><a class="nav-page-title" href="/"><span class="site-name">win10-11安装docker及其简单使用</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  返回首页</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 目录</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于我们</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">win10-11安装docker及其简单使用</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-10-11T02:17:42.000Z" title="发表于 2025-10-11 10:17:42">2025-10-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-11-17T02:18:13.585Z" title="更新于 2025-11-17 10:18:13">2025-11-17</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">浏览量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="win10-11安装docker及其简单使用"><a href="#win10-11安装docker及其简单使用" class="headerlink" title="win10-11安装docker及其简单使用"></a>win10-11安装docker及其简单使用</h1><h2 id="一、Docker-简介"><a href="#一、Docker-简介" class="headerlink" title="一、Docker 简介"></a>一、Docker 简介</h2><p>Docker 是一个开源的应用容器引擎，可以让开发者将应用及其依赖打包到一个可移植的镜像中，然后在任意环境中运行。<br>在 Windows 下安装 Docker 的方式主要是通过 Docker Desktop，它支持 WSL2 技术，大幅提高性能。</p>
+<h2 id="二、安装"><a href="#二、安装" class="headerlink" title="二、安装"></a>二、安装</h2><h3 id="1-安装前的准备"><a href="#1-安装前的准备" class="headerlink" title="1.安装前的准备"></a>1.安装前的准备</h3><h4 id="1-1-检查-Windows-版本"><a href="#1-1-检查-Windows-版本" class="headerlink" title="1.1 检查 Windows 版本"></a>1.1 检查 Windows 版本</h4><p>Docker Desktop 要求：</p>
+<ul>
+<li>Windows 10（64 位）专业版 &#x2F; 企业版</li>
+<li>Windows 11（64 位）专业版 &#x2F; 企业版</li>
+<li>家庭版需先开启 WSL2<br><strong>检查方法</strong>：<code>Win + R → 输入 winver → 回车</code></li>
+</ul>
+<h4 id="1-2-确认虚拟化已开启"><a href="#1-2-确认虚拟化已开启" class="headerlink" title="1.2 确认虚拟化已开启"></a>1.2 确认虚拟化已开启</h4><p>按下 Ctrl + Shift + Esc 打开任务管理器<br>切换到 性能 选项卡<br>查看右下角 虚拟化 是否为 已启用  </p>
+<h4 id="1-3-启用Hyper-v并开启虚拟任务"><a href="#1-3-启用Hyper-v并开启虚拟任务" class="headerlink" title="1.3 启用Hyper-v并开启虚拟任务"></a>1.3 启用Hyper-v并开启虚拟任务</h4><p>按住键盘Win+R,输入optionalfeatures.exe<br>其他方式：控制面板的程序和功能→启动或关闭Windows功能  </p>
+<h3 id="2-安装-Docker-Desktop"><a href="#2-安装-Docker-Desktop" class="headerlink" title="2.安装 Docker Desktop"></a>2.安装 Docker Desktop</h3><h3 id="2-1-默认安装"><a href="#2-1-默认安装" class="headerlink" title="2.1 默认安装"></a>2.1 默认安装</h3><h4 id="2-1-1-下载"><a href="#2-1-1-下载" class="headerlink" title="2.1.1 下载"></a>2.1.1 下载</h4><p>前往 Docker 官方下载页面：<br><a target="_blank" rel="noopener" href="https://www.docker.com/products/docker-desktop/">Docker Desktop</a><br>选择 Windows 版本，点击 Download for Windows。  </p>
+<h4 id="2-1-2-安装步骤"><a href="#2-1-2-安装步骤" class="headerlink" title="2.1.2 安装步骤"></a>2.1.2 安装步骤</h4><ol>
+<li>双击下载的 Docker Desktop Installer.exe  </li>
+<li>勾选：<br>①：Install required Windows components for WSL 2<br>②：Add shortcut to desktop  </li>
+<li>点击 OK 开始安装  </li>
+<li>安装完成后会提示 <strong>重启电脑</strong></li>
+</ol>
+<h3 id="2-2-安装到其他盘符"><a href="#2-2-安装到其他盘符" class="headerlink" title="2.2 安装到其他盘符"></a>2.2 安装到其他盘符</h3><h4 id="2-2-1-新建文件夹"><a href="#2-2-1-新建文件夹" class="headerlink" title="2.2.1 新建文件夹"></a>2.2.1 新建文件夹</h4><ol>
+<li>在<code>[你的目标盘]</code>下新建2个文件夹<br>例：<br>E:\Program Files\data<br>E:\Program Files\Docker  </li>
+<li>把下载好的docker安装文件转移到E:\Program Files下</li>
+</ol>
+<h4 id="2-2-2-安装"><a href="#2-2-2-安装" class="headerlink" title="2.2.2 安装"></a>2.2.2 安装</h4><ol>
+<li><p>首先管理员方式打开<code>PowerShell</code></p>
+</li>
+<li><p>执行命令</p>
+ <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Start-Process -FilePath <span class="string">&quot;Docker Desktop Installer.exe&quot;</span> -ArgumentList <span class="string">&#x27;install&#x27;</span>, <span class="string">&#x27;-accept-license&#x27;</span>, <span class="string">&#x27;--installation-dir=&quot;E:\Program Files\Docker&quot;&#x27;</span>, <span class="string">&#x27;--wsl-default-data-root=&quot;E:\Program Files\Docker\data&quot;&#x27;</span>, <span class="string">&#x27;--windows-containers-default-data-root=&quot;E:\Program Files\Docker&quot;&#x27;</span> -Wait</span><br></pre></td></tr></table></figure>
+<p> 解释：</p>
+</li>
+</ol>
+<ul>
+<li>Start-Process：PowerShell 中用于启动新进程（如执行程序、脚本等）的 cmdlet，相当于 “运行一个程序”。</li>
+<li>-FilePath “Docker Desktop Installer.exe”：指定要运行的程序路径，这里是 Docker Desktop 的安装程序 Docker Desktop Installer.exe（需确保该文件在当前工作目录，或填写完整路径，如 C:\Downloads\Docker Desktop Installer.exe）。</li>
+<li>-ArgumentList （后续的一串参数）：<br>传递给安装程序的命令行参数，用于配置安装行为，各参数含义：<ul>
+<li>install：指示安装程序执行 “安装” 操作（而非卸载等其他行为）。</li>
+<li>-accept-license：自动接受 Docker 的许可协议（无需手动点击 “同意”）。</li>
+<li>–installation-dir&#x3D;”E:\Program Files\Docker”：指定 Docker 的安装目录（默认通常是 C:\Program Files\Docker，这里修改为 E 盘路径）。</li>
+<li>–wsl-default-data-root&#x3D;”E:\Program Files\Docker\data”：指定 WSL（Windows 子系统 for Linux）相关的 Docker 数据存储目录（如镜像、容器数据等）。</li>
+<li>–windows-containers-default-data-root&#x3D;”E:\Program Files\Docker”：指定 Windows 容器的默认数据存储目录。</li>
+</ul>
+</li>
+<li>-Wait：让 PowerShell 等待当前启动的安装进程（Docker 安装程序）完成后，再继续执行后续命令（避免安装未完成就执行其他操作）。</li>
+<li></li>
+</ul>
+<h4 id="2-2-3-安装后验证"><a href="#2-2-3-安装后验证" class="headerlink" title="2.2.3 安装后验证"></a>2.2.3 安装后验证</h4><p>打开WIN+R，输入cmd</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-启用-WSL2"><a href="#3-启用-WSL2" class="headerlink" title="3.启用 WSL2"></a>3.启用 WSL2</h3><p>家庭版和专业版都建议看一下。</p>
+<h4 id="3-1-安装-WSL2"><a href="#3-1-安装-WSL2" class="headerlink" title="3.1 安装 WSL2"></a>3.1 安装 WSL2</h4><p><strong>方法一</strong>：在 PowerShell（管理员模式）中输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --install</span><br></pre></td></tr></table></figure>
+<p>等待系统自动安装 Linux 子系统和 WSL2 内核。<br><strong>方法二</strong>：直接打开Docker Desktop，会提示你，WSL need updating。点击Restart，然后按任意跳出PowerShell（管理员模式），按任意键安装（推荐）</p>
+<h4 id="3-2-设置-WSL2-为默认版本"><a href="#3-2-设置-WSL2-为默认版本" class="headerlink" title="3.2 设置 WSL2 为默认版本"></a>3.2 设置 WSL2 为默认版本</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --set-default-version 2</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-WSL版本更新"><a href="#3-3-WSL版本更新" class="headerlink" title="3.3 WSL版本更新"></a>3.3 WSL版本更新</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wsl --update</span><br></pre></td></tr></table></figure>
+
+<p>如果wsl –update命令执行失败，说明电脑安装的wsl有问题，请按以下教程完成WSL&#x2F;WSL2的安装，WSL2安装参考官网安装教程链接如下：<br><a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/windows/wsl/install-manual">https://learn.microsoft.com/zh-cn/windows/wsl/install-manual</a></p>
+<h3 id="4-Docker配置"><a href="#4-Docker配置" class="headerlink" title="4.Docker配置"></a>4.Docker配置</h3><h4 id="4-1-Docker版本"><a href="#4-1-Docker版本" class="headerlink" title="4.1 Docker版本"></a>4.1 Docker版本</h4><p>win+R，输入cmd回车，输入检测docker安装的版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker --version <span class="comment"># 检测docker安装的版本：</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-Docker镜像配置"><a href="#4-2-Docker镜像配置" class="headerlink" title="4.2 Docker镜像配置"></a>4.2 Docker镜像配置</h4><p>双击docker Desktop<br>点击齿轮图标(设置)</p>
+<p>点击Docker Engine</p>
+<p>配置镜像<br>国内镜像有很多，有的好用有的不好用，这里我尝试这个好用。其余镜像放在文末。</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;builder&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;gc&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">      <span class="attr">&quot;defaultKeepStorage&quot;</span><span class="punctuation">:</span> <span class="string">&quot;20GB&quot;</span><span class="punctuation">,</span></span><br><span class="line">      <span class="attr">&quot;enabled&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">    <span class="punctuation">&#125;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;debug&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;experimental&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;features&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;buildkit&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;registry-mirrors&quot;</span><span class="punctuation">:</span> <span class="punctuation">[</span></span><br><span class="line">    <span class="string">&quot;https://docker.m.daocloud.io&quot;</span></span><br><span class="line">  <span class="punctuation">]</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、Docker使用"><a href="#三、Docker使用" class="headerlink" title="三、Docker使用"></a>三、Docker使用</h2><ol>
+<li>hello-world镜像<br> 打开 PowerShell 或 CMD，输入： <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run hello-world</span><br></pre></td></tr></table></figure>
+ 进入docker界面查看images<br> 打开 PowerShell 或 CMD，输入：<code>docker images</code> 也可从查看</li>
+</ol>
+<h2 id="四、Docker卸载"><a href="#四、Docker卸载" class="headerlink" title="四、Docker卸载"></a>四、Docker卸载</h2><ol>
+<li>Windows 系统（Docker Desktop）</li>
+<li>关闭正在运行的 Docker Desktop 应用</li>
+<li>打开「控制面板」→「程序和功能」</li>
+<li>找到 Docker Desktop，右键选择「卸载」</li>
+<li>按提示完成卸载，最后重启电脑（可选，确保完全清理）</li>
+</ol>
+<p>注：Hyper-V和WSL也可以卸载，这里不过多叙述。<br>具体参照：Docker卸载</p>
+<p>————————————————<br>参考资料：<br><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44884970/article/details/151582564">https://blog.csdn.net/weixin_44884970/article/details/151582564</a></p>
+<h2 id="倒退搭建安装"><a href="#倒退搭建安装" class="headerlink" title="倒退搭建安装"></a>倒退搭建安装</h2><p>得知要安装docker，直接在官网下载docker并安装，然后启动，如无法正常启动，会在界面提示错误及修改方法，按照提示进行完善环境操作</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">Excalibur</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/10/11/win10-11%E5%AE%89%E8%A3%85docker%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">http://example.com/2025/10/11/win10-11安装docker及其简单使用/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来源 <a href="http://example.com" target="_blank">Attitude’s Blog</a>！</span></div></div><div class="tag_share"><div class="post-share"><div class="social-share" data-image="/img/butterfly-icon1.png" data-sites="facebook,x,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.6/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related" href="/2025/10/28/sr4rs%E9%83%A8%E7%BD%B2%E5%8F%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="sr4rs部署及简单使用"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info"><div class="info-1"><div class="info-item-1">上一篇</div><div class="info-item-2">sr4rs部署及简单使用</div></div><div class="info-2"><div class="info-item-1">sr4rs超分辨率处理 部署运行记录设备环境win11、python环境(&gt;&#x3D;3.9) 思路查看sr4rs的github仓库的readme得知，需从docker拉取镜像、使用训练模型合成波段、执行python代码进行超分辨率。windows的docker需要依托Hyper-V或WSL，第一种是个虚拟环境，也就是虚拟机，第二WSL是Windows的Linux子系统(系统要求不低于Window10的2021版本)。本人选择WSL，毕竟虚拟机肯定是没有子Linux系统的反应快。 目录 win搭建docker并拉取镜像  准备数据：4个tif文件、训练模型、sr4rs代码文件 运行镜像并挂载上述数据文件夹到镜像 合成波段影像 执行超分辨率处理 使用envi或QGIS查看结果 与处理前进行对比  步骤 win搭建docker并拉取镜像(参考之前的安装docker博文) 准备数据：4个tif文件、训练模型、sr4rs代码文件 运行镜像并挂载上述数据文件夹到镜像 合成波段影像 执行超分辨率处理 使用envi或QGIS查看结果 与处理前进行对比  参考链接 https://git...</div></div></div></a><a class="pagination-related" href="/2025/03/10/learnGitlab/" title="离线搭建gitlab &amp; gitlab-runner"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">下一篇</div><div class="info-item-2">离线搭建gitlab & gitlab-runner</div></div><div class="info-2"><div class="info-item-1">前言离线搭建gitlab及gitlab-runner实现局域网的代码管理及版本控制、简单的CI测试。 运行环境及所需软件包事先在物理机上准备好所需安装包，博主使用的是：  物理机：Windows10   虚拟机软件：VMware Workstation Pro 17.6.2(个人使用免费)官网：https://www.vmware.com (注册账号后可以下载最新版)    虚拟机：Centos7阿里云开源镜像站：https://mirrors.aliyun.com/centos/7/isos/x86_64&#x2F;    gitlab：15.9.1官网镜像网站：https://packages.gitlab.com/gitlab/gitlab-ce清华镜像网站：https://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7/官方文档网站：https://packagecloud.io/docs   gitlab-runner：14.7.0清华镜像网站：https://mirrors.tuna.tsinghua.edu.cn/git...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/butterfly-icon1.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Excalibur</div><div class="author-info-description">且将新火试新茶，诗酒趁年华</div><div class="site-data"><a href="/archives/"><div class="headline">文章</div><div class="length-num">5</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Excalibur1001"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#win10-11%E5%AE%89%E8%A3%85docker%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">win10-11安装docker及其简单使用</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81Docker-%E7%AE%80%E4%BB%8B"><span class="toc-number">1.1.</span> <span class="toc-text">一、Docker 简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.</span> <span class="toc-text">二、安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%AE%89%E8%A3%85%E5%89%8D%E7%9A%84%E5%87%86%E5%A4%87"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.安装前的准备</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-1-%E6%A3%80%E6%9F%A5-Windows-%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.1.1.</span> <span class="toc-text">1.1 检查 Windows 版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-2-%E7%A1%AE%E8%AE%A4%E8%99%9A%E6%8B%9F%E5%8C%96%E5%B7%B2%E5%BC%80%E5%90%AF"><span class="toc-number">1.2.1.2.</span> <span class="toc-text">1.2 确认虚拟化已开启</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-%E5%90%AF%E7%94%A8Hyper-v%E5%B9%B6%E5%BC%80%E5%90%AF%E8%99%9A%E6%8B%9F%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.2.1.3.</span> <span class="toc-text">1.3 启用Hyper-v并开启虚拟任务</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85-Docker-Desktop"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.安装 Docker Desktop</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E9%BB%98%E8%AE%A4%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.3.</span> <span class="toc-text">2.1 默认安装</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-1-%E4%B8%8B%E8%BD%BD"><span class="toc-number">1.2.3.1.</span> <span class="toc-text">2.1.1 下载</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-1-2-%E5%AE%89%E8%A3%85%E6%AD%A5%E9%AA%A4"><span class="toc-number">1.2.3.2.</span> <span class="toc-text">2.1.2 安装步骤</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E5%AE%89%E8%A3%85%E5%88%B0%E5%85%B6%E4%BB%96%E7%9B%98%E7%AC%A6"><span class="toc-number">1.2.4.</span> <span class="toc-text">2.2 安装到其他盘符</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-1-%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">1.2.4.1.</span> <span class="toc-text">2.2.1 新建文件夹</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-2-%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.4.2.</span> <span class="toc-text">2.2.2 安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-2-3-%E5%AE%89%E8%A3%85%E5%90%8E%E9%AA%8C%E8%AF%81"><span class="toc-number">1.2.4.3.</span> <span class="toc-text">2.2.3 安装后验证</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%90%AF%E7%94%A8-WSL2"><span class="toc-number">1.2.5.</span> <span class="toc-text">3.启用 WSL2</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E5%AE%89%E8%A3%85-WSL2"><span class="toc-number">1.2.5.1.</span> <span class="toc-text">3.1 安装 WSL2</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E8%AE%BE%E7%BD%AE-WSL2-%E4%B8%BA%E9%BB%98%E8%AE%A4%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.5.2.</span> <span class="toc-text">3.2 设置 WSL2 为默认版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-WSL%E7%89%88%E6%9C%AC%E6%9B%B4%E6%96%B0"><span class="toc-number">1.2.5.3.</span> <span class="toc-text">3.3 WSL版本更新</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Docker%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.6.</span> <span class="toc-text">4.Docker配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-Docker%E7%89%88%E6%9C%AC"><span class="toc-number">1.2.6.1.</span> <span class="toc-text">4.1 Docker版本</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-2-Docker%E9%95%9C%E5%83%8F%E9%85%8D%E7%BD%AE"><span class="toc-number">1.2.6.2.</span> <span class="toc-text">4.2 Docker镜像配置</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81Docker%E4%BD%BF%E7%94%A8"><span class="toc-number">1.3.</span> <span class="toc-text">三、Docker使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Docker%E5%8D%B8%E8%BD%BD"><span class="toc-number">1.4.</span> <span class="toc-text">四、Docker卸载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%92%E9%80%80%E6%90%AD%E5%BB%BA%E5%AE%89%E8%A3%85"><span class="toc-number">1.5.</span> <span class="toc-text">倒退搭建安装</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/11/13/Nuklear%E5%AD%A6%E4%B9%A0%E5%8F%8A%E4%BA%8C%E5%BC%80%E8%AE%B0%E5%BD%95/" title="Nuklear学习及二开记录">Nuklear学习及二开记录</a><time datetime="2025-11-13T01:36:54.000Z" title="发表于 2025-11-13 09:36:54">2025-11-13</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/28/sr4rs%E9%83%A8%E7%BD%B2%E5%8F%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="sr4rs部署及简单使用">sr4rs部署及简单使用</a><time datetime="2025-10-28T02:06:00.000Z" title="发表于 2025-10-28 10:06:00">2025-10-28</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/10/11/win10-11%E5%AE%89%E8%A3%85docker%E5%8F%8A%E5%85%B6%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/" title="win10-11安装docker及其简单使用">win10-11安装docker及其简单使用</a><time datetime="2025-10-11T02:17:42.000Z" title="发表于 2025-10-11 10:17:42">2025-10-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/03/10/learnGitlab/" title="离线搭建gitlab &amp; gitlab-runner">离线搭建gitlab &amp; gitlab-runner</a><time datetime="2025-03-10T15:01:29.158Z" title="发表于 2025-03-10 23:01:29">2025-03-10</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/10/hello-world/" title="Hello World">Hello World</a><time datetime="2024-11-10T08:39:19.442Z" title="发表于 2024-11-10 16:39:19">2024-11-10</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;&nbsp;2025 By Excalibur</span><span class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.5.3-b1</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="日间和夜间模式切换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=5.5.3-b1"></script><script src="/js/main.js?v=5.5.3-b1"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
